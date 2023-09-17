@@ -5,7 +5,7 @@ This dataset provides information about the weather obseravation of 187 countrie
 There are six elements to this project:
 1. Introduction
 2. Data Preprocessing
-3. Data visualization
+3. Data visualisation
 4. Modeling
 5. Inference
 6. Conclusion
@@ -48,7 +48,7 @@ The Feature Explanations:
 > There are *22456* duplicate instances so all these instances are dropped.
 4. Latitude and Longitude
 > Missing value of Latitude and Longitude is managed by using geopandas library but in this dataset we dont have exact address of station in country only station id is provided so those stations will have common geocodes of their corresponding country.
-# 3. Data Visualization
+# 3. Data Visualisation
 We have tried to made inference from this data by using 
 * Boxplot of Precipitation, Temperature Average, Maximum Temperature and Minimum Temperature to know the distribution of data
 * scatter plot of **TAVG v/s PRCP**,**TMAX v/s TMIN** and **County/Region v/s PRCP**.
