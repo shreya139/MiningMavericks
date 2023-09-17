@@ -7,8 +7,7 @@ There are six elements to this project:
 2. Data Preprocessing
 3. Data visualisation
 4. Modeling
-5. Inference
-6. Conclusion
+5. Conclusion
 
 # 1. Introduction
 
@@ -70,9 +69,17 @@ We have tried to made inference from this data by using
    - Autoregressive Integrated Moving Average (ARIMA)
    - Lasso Regression
    - Ridge Regression
+# 5. Conclusion
+After a thorough examination of multiple machine learning models on our dataset, we concluded that Simple Linear Regression regularly beats the other models in terms of predicted accuracy. This claim is based on a thorough examination of numerous key performance indicators, such as Root Mean Squared Error (RMSE) and R-squared (R2) values.
+
+Simple Linear Regression consistently had the lowest RMSE throughout our experiment, suggesting its superior capacity to minimize the difference between predicted and actual values. A lower RMSE indicates that this model makes the most accurate predictions when compared to other approaches.
+
+Furthermore, when using Simple Linear Regression, the R-squared (R2) value, which represents the proportion of the variation in the dependent variable that is predictable from the independent variable(s), consistently produced the highest results. A higher R2 implies a better fit of the model to the data, indicating that this model captures a greater amount of the variability in the dataset, making it a reliable choice for our predicting tasks.
+
+In conclusion, our comprehensive testing and careful examination have led us to the unequivocal conclusion that Simple Linear Regression is the best choice among the models studied, consistently demonstrating the lowest RMSE and greatest R-squared values. This finding emphasizes Simple Linear Regression's usefulness in modeling the relationship between our variables and indicates its potential for higher predictive performance in our unique application.
 # Contributors
-* Dhruv Solanki (202218053)  - 
-* Shreya Arora (202218032) -
-* Zeel Gudhka (202218025) -
-* Dhruvi Kotecha (202218009) - 
-* Mayank Gour (202101072) - 
+* Dhruv Solanki (202218053)
+* Shreya Arora (202218032)
+* Zeel Gudhka (202218025)
+* Dhruvi Kotecha (202218009)
+* Mayank Gour (202101072)
