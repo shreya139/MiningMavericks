@@ -40,11 +40,12 @@ The Feature Explanations:
 
 # 2. Data Preprocessing
 1. Eliminating meaningless attributes
-> **DAPR, MDPR, WESD, PRCP_ATTRIBUTES, TAVG_ATTRIBUTES, TMAX_ATTRIBUTES, TMIN_ATTRIBUTES, SNWD_ATTRIBUTES:** These columns have a high percentage of missing values (over 99%), and it's unlikely they will provide meaningful insights. It's advisable to remove them.There are *22456* duplicate instances so all these instances are dropped.
+> **DAPR, MDPR, WESD, PRCP_ATTRIBUTES, TAVG_ATTRIBUTES, TMAX_ATTRIBUTES, TMIN_ATTRIBUTES, SNWD_ATTRIBUTES:** These columns have a high percentage of missing values (over 99%), and it's unlikely they will provide meaningful insights. It's advisable to remove them.
 2. Changed Data type
 > DATE attribute is change from object to datatime.
-3. Handled Null Values
+3. Handled Null Values and Duplicate Instances
 > There are missing value of TAVG,TMAX,TMIN so by grouping by STATION attribute of Country we will fill those missing values with the mean of correspondin attribute. Even after that these attributes contains null values so by grouping by Country we handeled these values.
+> There are *22456* duplicate instances so all these instances are dropped.
 4. Latitude and Longitude
 > Missing value of Latitude and Longitude is managed by using geopandas library but in this dataset we dont have exact address of station in country only station id is provided so those stations will have common geocodes of their corresponding country.
 # 3. Data Visualization
@@ -57,7 +58,18 @@ We have tried to made inference from this data by using
 * Time Series Plot of Average Temperature for Station CA004016699 of Canada.
 * Box Plot of Average Temperaturen (TAVG) by month of Station CA004016699 of Canada.
 # 4. Modeling
-
+### 1. Country Wise Precipitation **(PRCP)** prediction
+   - Linear Regression
+   - Polynomial Regression
+   - Stochastic Gradient Descent (SGD)
+   - Lasso Regression
+   - Ridge Regression
+   - Autoregressive Integrated Moving Average (ARIMA)
+### 2. Station Wise Average Temperature **(TAVG)** prediction
+   - Forecasting next 7 days TAVG using Linear Regression
+   - Autoregressive Integrated Moving Average (ARIMA)
+   - Lasso Regression
+   - Ridge Regression
 # Contributors
 * Dhruv Solanki (202218053)  - 
 * Shreya Arora (202218032) -
