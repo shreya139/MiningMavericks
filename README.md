@@ -4,12 +4,11 @@
 This dataset provides information about the weather obseravation of 187 countries/regions,spanning from January 22, 2020 to July 27, 2020.
 There are six elements to this project:
 1. Introduction
-2. Data Cleaning
+2. Data Preprocessing
 3. Data visualization
-4. Data Preprocessing
-5. Modeling
-6. Inference
-7. Conclusion
+4. Modeling
+5. Inference
+6. Conclusion
 
 # 1. Introduction
 
@@ -39,9 +38,25 @@ The Feature Explanations:
 * **WESD:** The water equivalent of the snow depth on the ground
 * **SNWD_ATTRIBUTES:** Additional attributes for the snow depth data
 
-# 2. Data Cleaning
-
-**DAPR, MDPR, WESD, PRCP_ATTRIBUTES, TAVG_ATTRIBUTES, TMAX_ATTRIBUTES, TMIN_ATTRIBUTES, SNWD_ATTRIBUTES:** These columns have a high percentage of missing values (over 99%), and it's unlikely they will provide meaningful insights. It's advisable to remove them.There are *22456* duplicate instances so all these instances are dropped.
+# 2. Data Preprocessing
+1. Eliminating meaningless attributes
+> **DAPR, MDPR, WESD, PRCP_ATTRIBUTES, TAVG_ATTRIBUTES, TMAX_ATTRIBUTES, TMIN_ATTRIBUTES, SNWD_ATTRIBUTES:** These columns have a high percentage of missing values (over 99%), and it's unlikely they will provide meaningful insights. It's advisable to remove them.There are *22456* duplicate instances so all these instances are dropped.
+2. Changed Data type
+> DATE attribute is change from object to datatime.
+3. Handled Null Values
+> There are missing value of TAVG,TMAX,TMIN so by grouping by STATION attribute of Country we will fill those missing values with the mean of correspondin attribute. Even after that these attributes contains null values so by grouping by Country we handeled these values.
+4. Latitude and Longitude
+> Missing value of Latitude and Longitude is managed by using geopandas library but in this dataset we dont have exact address of station in country only station id is provided so those stations will have common geocodes of their corresponding country.
+# 3. Data Visualization
+We have tried to made inference from this data by using 
+* Boxplot of Precipitation, Temperature Average, Maximum Temperature and Minimum Temperature to know the distribution of data
+* scatter plot of **TAVG v/s PRCP**,**TMAX v/s TMIN** and **County/Region v/s PRCP**.
+* Correlationn heatmap.
+* Pie Chart for Country wise distribution.
+* Histogram of TAVG,TMAX and TMIN.
+* Time Series Plot of Average Temperature for Station CA004016699 of Canada.
+* Box Plot of Average Temperaturen (TAVG) by month of Station CA004016699 of Canada.
+# 4. Modeling
 
 # Contributors
 * Dhruv Solanki (202218053)  - 
