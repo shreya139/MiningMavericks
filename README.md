@@ -43,7 +43,7 @@ The Feature Explanations:
 > **DAPR, MDPR, WESD, PRCP_ATTRIBUTES, TAVG_ATTRIBUTES, TMAX_ATTRIBUTES, TMIN_ATTRIBUTES, SNWD_ATTRIBUTES:** These columns have a high percentage of missing values (over 99%), and it's unlikely they will provide meaningful insights. It's advisable to remove them.
 2. Changed Data type
 > DATE attribute is change from object to datatime.
-3. Handled Null Values and Duplicate Instances
+3. Handeling Null Values and Duplicate Instances
 > There are missing value of TAVG,TMAX,TMIN so by grouping by STATION attribute of Country we will fill those missing values with the mean of correspondin attribute. Even after that these attributes contains null values so by grouping by Country we handeled these values.
 > There are *22456* duplicate instances so all these instances are dropped.
 4. Latitude and Longitude
