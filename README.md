@@ -77,6 +77,25 @@ We have performed univariate analysis for categorical attributes to understand t
 ### 4. Prediction of Medical Surgical Description
       - Logistic Regression
       - Bagging and Boosting
+
+# 5. Conclusion
+After experimenting with several models to predict the Risk of Mortality, we have determined that the Decision Tree model performs the best in this scenario, possibly due to addressing the class imbalance.
+
+When predicting Source of Payment 1, we observed that Decision Tree overfits the data, whereas Logistic Regression, while achieving lower accuracy, does not suffer from overfitting in either case.
+
+Random Forest and Deep Learning models demonstrate superior performance when predicting the severity of illness. XGBoost (XGB) performs exceptionally well in predicting medical surgical descriptions.
+
+# Contributors
+* Dhruv Solanki (202218053)
+* Shreya Arora (202218032)
+* Zeel Gudhka (202218025)
+* Dhruvi Kotecha (202218009)
+* Mayank Gour (202101072)
+
+---
+
+---
+
       
 
 # Course Project 1
