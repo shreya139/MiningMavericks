@@ -1,3 +1,123 @@
+# MiningMaverick: Course Project 3
+# DATASET: [ICC Cricket World Cup 2023 ML Challenge](https://www.kaggle.com/datasets/pardeep19singh/icc-mens-world-cup-2023)
+The latest data has also been scrapped from https://cricsheet.org/
+
+# 1. Introduction
+## Dataset Description
+The 2023 ICC Men's Cricket World Cup is the 13th edition of the Cricket World Cup, a quadrennial One Day International (ODI) cricket tournament contested by men's national teams and organized by the International Cricket Council (ICC). The source of this dataset is Cricsheet. Cricsheet provides ball and ball data for most cricket tournaments. It contains 22579 instances for 22 attributes.
+
+Here are brief descriptions for each attribute in the New York State hospital inpatient discharge dataset:
+1. match_id: unique identifier of each match
+2. season: ICC Cricket World season during which the match took place
+3. start_date: The date when the match started
+4. venue: The location or stadium where the match was played
+5. innings: The inning number (1st inning, 2nd inning, etc.) in the match.
+6. ball: The ball number in the current over including the over
+7. batting_team: The team that is currently batting.
+8. bowling_team: The team that is currently bowling.
+9. striker: The batsman facing the current delivery.
+10. non_striker: The batsman at the non-striker's end.
+11. bowler: The bowler delivering the current ball.
+12. runs_off_bat: The number of runs scored off the bat (excluding extras).
+13. extras: Extra runs scored, including wides, no-balls, byes, leg byes, and penalties.
+14. wides: The number of wide deliveries bowled for the current ball
+15. noballs: The number of no-ball deliveries bowled for the current ball
+16. byes: The number of runs scored as byes.
+17. legbyes: The number of runs scored as leg byes.
+18. penalty: The number of runs scored as penalties.
+19. wicket_type: The type of wicket if a wicket fell (e.g., caught, bowled, lbw).
+20. player_dismissed: The player who got dismissed, if any.
+21. other_wicket_type: The type of dismissal for a wicket, other than the primary batsman's dismissal
+22. other_player_dismissed: The player who got dismissed in addition to the primary batsman.
+
+# 2. Data Preprocessing and Feature Engineering:
+1. Handeling Null Values and Duplicate Instances
+> 'wides', 'noballs', 'byes', 'legbyes', and 'penalty' previously had null values, indicating no runs were scored in these categories. These null values have been replaced with 0, signifying that no additional runs were added.
+> For 'wicket_type' and 'other_wicket_type', which denoted the type of dismissal, null values have been replaced with a new category 'no wicket,' reflecting that no wicket fell during those deliveries.
+> Similarly, null values in 'player_dismissed' and 'other_player_dismissed,' representing the dismissed player's name, have been substituted with 'no dismissal,' indicating that no player was dismissed during those instances.
+
+3. Feature Engineering:
+The following features have been derived to create the necessary dataset for modelling:
+1. wicket: Binary indicator (1 or 0) for whether a wicket fell in the current delivery.
+2. over: The current over number.
+3. ball_num: The current ball number of the over.
+4. ball_left: The number of balls remaining in the match.
+5. total_runs: The total runs scored by the batting team in the current delivery.
+6. score: The current score of the batting team.
+7. wickets_remaining: The number of wickets yet to fall for the batting team.
+8. run_rate: The run rate calculated as the ratio of total runs to the number of overs bowled.
+9. target: The target score set for the second inning in limited-overs matches.
+10. winner: The team that won the match.
+11. req_runs: The required runs for the chasing team to win, in case of second innings.
+12. req_rr: The required run rate for the chasing team to win, in case of second innings.
+13. result: The result of the match if the batting team won (1) or lost (0).
+
+# 3. EDA
+We have performed univariate analysis for categorical attributes to understand the distribution of data for each category. Bar graphs with percentage have been plotted for the same.
+
+# 4. Modelling
+### Task 1:
+#### 1. [Predicting the player who will hit the most sixes in the tournament](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task1_most_sixes.ipynb)
+      Additional attributes such as strike rate, balls played, and the number of sixes have been engineered to enhance the dataset for the specific prediction task. This involved creating new features that provide insights into a batsman's performance, including their scoring rate, the number of deliveries faced, and the frequency of hitting sixes.
+
+      Furthermore, to facilitate model training, label encoding has been applied to categorical variables such as venue, batsmen, and team.
+
+      LSTM has been used for predicting the number of sixes. The choice of LSTM for this task is apt due to the inherent sequential nature of cricket match data. Ball-by-ball events influence a batsman's performance over time, and LSTMs excel at capturing patterns in sequential data with long-term dependencies. This makes them well-suited for analyzing and predicting outcomes in cricket matches, where the order of events is crucial in understanding player performance.
+      
+#### 2. [Training the model to predict Wicket Fall](https://github.com/shreya139/MiningMavericks/blob/main/CP3.py)
+      We endeavored to train the model to anticipate whether a wicket will fall or not based on the prevailing statistics of the current delivery.
+   
+### Task 2: [Predicting the Finalist Teams](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task2_%26_Task3.ipynb)
+      In our attempt to predict the outcome of cricket matches, specifically whether the batting team will win or not, we employed various machine learning ensemble techniques and deep learning methods. The features used for prediction include 'venue', 'batting_team', 'bowling_team', 'ball', 'score', 'run_rate', 'req_rr', 'ball_left', 'req_runs', 'wickets_remaining', and 'target.'
+
+      Here is a summary of the models implemented and their respective accuracies:
+
+      1. **Logistic Regression:**
+         - Test Set Accuracy: 93.22%
+
+      2. **Gradient Boosting:**
+         - Test Set Accuracy: 100.00%
+
+      3. **XGBoost:**
+         - Test Set Accuracy: 100.00%
+
+      4. **CatBoost:**
+         - Test Set Accuracy: 100.00%
+
+      5. **LGBMClassifier:**
+         - Test Set Accuracy: 100.00%
+
+      6. **MLP (Multi-Layer Perceptron):**
+         - Test Set Accuracy: 100.00%
+
+      For the prediction of semi-final winners and final winners, we opted for the Categorical Boost Classifier. The prediction was based on the match state after the first ball of the first innings, assuming no runs were scored initially. The average run rate of the respective teams was utilized for these predictions.
+
+      While all the ensemble models and deep learning techniques achieved 100% accuracy on the test data, the Categorical Boost Classifier was chosen for its superior speed, efficiency, memory usage, and deployment considerations compared to other models. This decision factors in not only accuracy but also practical aspects that make the chosen model more suitable for real-world applications.
+      
+### Task 3: [Predict the Winner of ICC Cricket World Cup 2023](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task2_%26_Task3.ipynb)
+      The same methodology used in Task 2, involving various machine learning ensemble techniques and deep learning methods, has been applied to predict the winner of the ICC Cricket World Cup 2023. The features considered for this prediction likely include relevant cricket match data, and the chosen models were likely trained on historical data to make predictions for the World Cup matches.
+
+# 5. Conclusion
+In Task 1, our model predicts that Glenn Maxwell (GJ Maxwell) will hit the most sixes, followed by Mitchell Marsh (MR Marsh). This prediction is based on the features and methodology used in Task 1, which involves historical player performance data during the series.
+
+As per our model's predictions, India is anticipated to emerge victorious in the first semi-final, securing a spot in the finals. Nevertheless, when both South Africa and Australia are granted the opportunity to bat first, their probabilities of winning are notably high. Specifically, if South Africa assumes the batting position first, the model assigns a 99% chance of victory for the team.
+
+Our predictive analysis focused on forecasting the ultimate winners, considering the potential finalists, South Africa and Australia. Notably, South Africa emerges as the frontrunner. In the scenario where India faces Australia in the finals, our model indicates a 95% probability of India winning if Australia bowls first, while the probability increases to 98% if India assumes the bowling position first.
+
+Should the finals feature India against South Africa, the likelihood of India winning is estimated at 83% if South Africa bowls first. Conversely, if India takes the bowling initiative, their chances decrease to 42% for securing victory and clinching the ICC World Cup trophy.
+
+# Contributors
+* Dhruv Solanki (202218053)
+* Shreya Arora (202218032)
+* Zeel Gudhka (202218025)
+* Dhruvi Kotecha (202218009)
+* Mayank Gour (202101072)
+
+---
+
+---
+
+
 # MiningMaverick: Course Project 2
 # DATASET: [New York State Hospital Inpatient Discharge](https://www.kaggle.com/datasets/thedevastator/2010-new-york-state-hospital-inpatient-discharge/)
 # 1. Introduction
