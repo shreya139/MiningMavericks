@@ -38,7 +38,7 @@ Here are brief descriptions for each attribute in the New York State hospital in
 
 3. Feature Engineering:
 The following features have been derived to create the necessary dataset for modelling:
-? 1. wicket: Binary indicator (1 or 0) for whether a wicket fell in the current delivery.
+> 1. wicket: Binary indicator (1 or 0) for whether a wicket fell in the current delivery.
 > 2. over: The current over number.
 > 3. ball_num: The current ball number of the over.
 > 4. ball_left: The number of balls remaining in the match.
