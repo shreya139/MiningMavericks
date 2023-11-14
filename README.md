@@ -58,41 +58,43 @@ We have performed univariate analysis for categorical attributes to understand t
 # 4. Modelling
 ### Task 1:
 #### 1. [Predicting the player who will hit the most sixes in the tournament](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task1_most_sixes.ipynb)
-      Additional attributes such as strike rate, balls played, and the number of sixes have been engineered to enhance the dataset for the specific prediction task. This involved creating new features that provide insights into a batsman's performance, including their scoring rate, the number of deliveries faced, and the frequency of hitting sixes.
+Additional attributes such as strike rate, balls played, and the number of sixes have been engineered to enhance the dataset for the specific prediction task. This involved creating new features that provide insights into a batsman's performance, including their scoring rate, the number of deliveries faced, and the frequency of hitting sixes.
 
-      Furthermore, to facilitate model training, label encoding has been applied to categorical variables such as venue, batsmen, and team.
+Furthermore, to facilitate model training, label encoding has been applied to categorical variables such as venue, batsmen, and team.
 
-      LSTM has been used for predicting the number of sixes. The choice of LSTM for this task is apt due to the inherent sequential nature of cricket match data. Ball-by-ball events influence a batsman's performance over time, and LSTMs excel at capturing patterns in sequential data with long-term dependencies. This makes them well-suited for analyzing and predicting outcomes in cricket matches, where the order of events is crucial in understanding player performance.
+LSTM has been used for predicting the number of sixes. The choice of LSTM for this task is apt due to the inherent sequential nature of cricket match data. Ball-by-ball events influence a batsman's performance over time, and LSTMs excel at capturing patterns in sequential data with long-term dependencies. This makes them well-suited for analyzing and predicting outcomes in cricket matches, where the order of events is crucial in understanding player performance.
       
 #### 2. [Training the model to predict Wicket Fall](https://github.com/shreya139/MiningMavericks/blob/main/CP3.py)
-      Our model training endeavors focused on predicting the likelihood of a wicket falling based on the current delivery statistics. Given the substantial class imbalance, we explored both Oversampling and Undersampling techniques to evaluate the model's performance. We employed Random Forest and Logistic Regression for training, and further experimented with Sequential Deep Learning and Functional API Deep Learning methods to enhance predictive capabilities.
+Our model training endeavors focused on predicting the likelihood of a wicket falling based on the current delivery statistics. Given the substantial class imbalance, we explored both Oversampling and Undersampling techniques to evaluate the model's performance. We employed Random Forest and Logistic Regression for training, and further experimented with Sequential Deep Learning and Functional API Deep Learning methods to enhance predictive capabilities.
    
 ### Task 2: [Predicting the Finalist Teams](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task2_%26_Task3.ipynb)
-      In our attempt to predict the outcome of cricket matches, specifically whether the batting team will win or not, we employed various machine learning ensemble techniques and deep learning methods. The features used for prediction include 'venue', 'batting_team', 'bowling_team', 'ball', 'score', 'run_rate', 'req_rr', 'ball_left', 'req_runs', 'wickets_remaining', and 'target.'
+In our attempt to predict the outcome of cricket matches, specifically whether the batting team will win or not, we employed various machine learning ensemble techniques and deep learning methods. The features used for prediction include 'venue', 'batting_team', 'bowling_team', 'ball', 'score', 'run_rate', 'req_rr', 'ball_left', 'req_runs', 'wickets_remaining', and 'target.'
 
-      Here is a summary of the models implemented and their respective accuracies:
+Here is a summary of the models implemented and their respective accuracies:
 
-      1. **Logistic Regression:**
+1. **Logistic Regression:**
          - Test Set Accuracy: 93.22%
 
-      2. **Gradient Boosting:**
+2. **Gradient Boosting:**
          - Test Set Accuracy: 100.00%
 
-      3. **XGBoost:**
+3. **XGBoost:**
          - Test Set Accuracy: 100.00%
 
-      4. **CatBoost:**
+4. **CatBoost:**
          - Test Set Accuracy: 100.00%
 
-      5. **LGBMClassifier:**
+5. **LGBMClassifier:**
          - Test Set Accuracy: 100.00%
 
-      6. **MLP (Multi-Layer Perceptron):**
+6. **MLP (Multi-Layer Perceptron):**
          - Test Set Accuracy: 100.00%
 
       For the prediction of semi-final winners and final winners, we opted for the Categorical Boost Classifier. The prediction was based on the match state after the first ball of the first innings, assuming no runs were scored initially. The average run rate of the respective teams was utilized for these predictions.
 
       While all the ensemble models and deep learning techniques achieved 100% accuracy on the test data, the Categorical Boost Classifier was chosen for its superior speed, efficiency, memory usage, and deployment considerations compared to other models. This decision factors in not only accuracy but also practical aspects that make the chosen model more suitable for real-world applications.
+
+      The two finalist teams have also been predicted using features ['venue', 'innings', 'total_runs', 'run_rate', 'batting_team', 'bowling_team'] using Sequential Deep Learning Technique. The accuracy of [this model](https://github.com/shreya139/MiningMavericks/blob/main/202218009_Data_Mining_Project3.ipynb) is 99.97%.
       
 ### Task 3: [Predict the Winner of ICC Cricket World Cup 2023](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task2_%26_Task3.ipynb)
       The same methodology used in Task 2, involving various machine learning ensemble techniques and deep learning methods, has been applied to predict the winner of the ICC Cricket World Cup 2023. The features considered for this prediction likely include relevant cricket match data, and the chosen models were likely trained on historical data to make predictions for the World Cup matches.
