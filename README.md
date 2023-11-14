@@ -38,21 +38,21 @@ Here are brief descriptions for each attribute in the New York State hospital in
 
 3. Feature Engineering:
 The following features have been derived to create the necessary dataset for modelling:
-1. wicket: Binary indicator (1 or 0) for whether a wicket fell in the current delivery.
-2. over: The current over number.
-3. ball_num: The current ball number of the over.
-4. ball_left: The number of balls remaining in the match.
-5. total_runs: The total runs scored by the batting team in the current delivery.
-6. score: The current score of the batting team.
-7. wickets_remaining: The number of wickets yet to fall for the batting team.
-8. run_rate: The run rate calculated as the ratio of total runs to the number of overs bowled.
-9. target: The target score set for the second inning in limited-overs matches.
-10. winner: The team that won the match.
-11. req_runs: The required runs for the chasing team to win, in case of second innings.
-12. req_rr: The required run rate for the chasing team to win, in case of second innings.
-13. result: The result of the match if the batting team won (1) or lost (0).
+? 1. wicket: Binary indicator (1 or 0) for whether a wicket fell in the current delivery.
+> 2. over: The current over number.
+> 3. ball_num: The current ball number of the over.
+> 4. ball_left: The number of balls remaining in the match.
+> 5. total_runs: The total runs scored by the batting team in the current delivery.
+> 6. score: The current score of the batting team.
+> 7. wickets_remaining: The number of wickets yet to fall for the batting team.
+> 8. run_rate: The run rate calculated as the ratio of total runs to the number of overs bowled.
+> 9. target: The target score set for the second inning in limited-overs matches.
+> 10. winner: The team that won the match.
+> 11. req_runs: The required runs for the chasing team to win, in case of second innings.
+> 12. req_rr: The required run rate for the chasing team to win, in case of second innings.
+> 13. result: The result of the match if the batting team won (1) or lost (0).
 
-# 3. EDA
+# 3. [EDA](https://github.com/shreya139/MiningMavericks/blob/Dhruvi-Kotecha/202218009_Data_Mining_Project3.ipynb)
 We have performed univariate analysis for categorical attributes to understand the distribution of data for each category. Bar graphs with percentage have been plotted for the same.
 
 # 4. Modelling
@@ -65,7 +65,7 @@ We have performed univariate analysis for categorical attributes to understand t
       LSTM has been used for predicting the number of sixes. The choice of LSTM for this task is apt due to the inherent sequential nature of cricket match data. Ball-by-ball events influence a batsman's performance over time, and LSTMs excel at capturing patterns in sequential data with long-term dependencies. This makes them well-suited for analyzing and predicting outcomes in cricket matches, where the order of events is crucial in understanding player performance.
       
 #### 2. [Training the model to predict Wicket Fall](https://github.com/shreya139/MiningMavericks/blob/main/CP3.py)
-      We endeavored to train the model to anticipate whether a wicket will fall or not based on the prevailing statistics of the current delivery.
+      Our model training endeavors focused on predicting the likelihood of a wicket falling based on the current delivery statistics. Given the substantial class imbalance, we explored both Oversampling and Undersampling techniques to evaluate the model's performance. We employed Random Forest and Logistic Regression for training, and further experimented with Sequential Deep Learning and Functional API Deep Learning methods to enhance predictive capabilities.
    
 ### Task 2: [Predicting the Finalist Teams](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task2_%26_Task3.ipynb)
       In our attempt to predict the outcome of cricket matches, specifically whether the batting team will win or not, we employed various machine learning ensemble techniques and deep learning methods. The features used for prediction include 'venue', 'batting_team', 'bowling_team', 'ball', 'score', 'run_rate', 'req_rr', 'ball_left', 'req_runs', 'wickets_remaining', and 'target.'
@@ -100,7 +100,9 @@ We have performed univariate analysis for categorical attributes to understand t
 # 5. Conclusion
 In Task 1, our model predicts that Glenn Maxwell (GJ Maxwell) will hit the most sixes, followed by Mitchell Marsh (MR Marsh). This prediction is based on the features and methodology used in Task 1, which involves historical player performance data during the series.
 
-As per our model's predictions, India is anticipated to emerge victorious in the first semi-final, securing a spot in the finals. Nevertheless, when both South Africa and Australia are granted the opportunity to bat first, their probabilities of winning are notably high. Specifically, if South Africa assumes the batting position first, the model assigns a 99% chance of victory for the team.
+The introduction of oversampling to predict wicket fall has significantly enhanced the model's performance, leading to high accuracy levels on both the validation and test sets. This improvement is particularly noteworthy for Random Forest models, as they tend to benefit from a balanced class distribution. Contrastingly, undersampling appears to have had a detrimental effect on the Random Forest model's performance. This outcome is likely attributed to the loss of information from the majority class, potentially posing challenges for the model to generalize effectively with a reduced representation of the majority class. In the realm of deep learning, the Sequential API, coupled with early stopping, achieved moderate accuracy. However, further fine-tuning or exploration of alternative architectures may be necessary to optimize its performance. On the other hand, the model constructed using the Functional API, incorporating features like batch normalization and skip connections, demonstrated improvements over the Sequential model. This observation suggests that a more intricate architecture, particularly one with skip connections, has the capacity to capture more nuanced patterns within the data.
+
+As per our model's predictions for the semi-final winners, India is anticipated to emerge victorious in the first semi-final, securing a spot in the finals. Nevertheless, when both South Africa and Australia are granted the opportunity to bat first, their probabilities of winning are notably high. Specifically, if South Africa assumes the batting position first, the model assigns a 99% chance of victory for the team.
 
 Our predictive analysis focused on forecasting the ultimate winners, considering the potential finalists, South Africa and Australia. Notably, South Africa emerges as the frontrunner. In the scenario where India faces Australia in the finals, our model indicates a 95% probability of India winning if Australia bowls first, while the probability increases to 98% if India assumes the bowling position first.
 
