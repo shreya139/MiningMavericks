@@ -97,7 +97,7 @@ Here is a summary of the models implemented and their respective accuracies:
       The two finalist teams have also been predicted using features ['venue', 'innings', 'total_runs', 'run_rate', 'batting_team', 'bowling_team'] using Sequential Deep Learning Technique. The accuracy of [this model](https://github.com/shreya139/MiningMavericks/blob/main/202218009_Data_Mining_Project3.ipynb) is 99.97%.
       
 ### Task 3: [Predict the Winner of ICC Cricket World Cup 2023](https://github.com/shreya139/MiningMavericks/blob/main/CP03_T28_Task2_%26_Task3.ipynb)
-      The same methodology used in Task 2, involving various machine learning ensemble techniques and deep learning methods, has been applied to predict the winner of the ICC Cricket World Cup 2023. The features considered for this prediction likely include relevant cricket match data, and the chosen models were likely trained on historical data to make predictions for the World Cup matches.
+The same methodology used in Task 2, involving various machine learning ensemble techniques and deep learning methods, has been applied to predict the winner of the ICC Cricket World Cup 2023. The features considered for this prediction likely include relevant cricket match data, and the chosen models were likely trained on historical data to make predictions for the World Cup matches.
 
 # 5. Conclusion
 In Task 1, our model predicts that Glenn Maxwell (GJ Maxwell) will hit the most sixes, followed by Mitchell Marsh (MR Marsh). This prediction is based on the features and methodology used in Task 1, which involves historical player performance data during the series. Rohit Sharma and Glenn Maxwell are predicted to hit the most fours.
